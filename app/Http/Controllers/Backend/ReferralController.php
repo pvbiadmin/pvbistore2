@@ -95,8 +95,10 @@ class ReferralController extends Controller
         $referralSetting = ReferralSetting::findOrFail($id);
         $packages = ProductType::where('is_package', 1)->get();
 
-        return view('admin.commissions.direct-referral.edit',
-            compact('referralSetting', 'packages'));
+        return view(
+            'admin.commissions.direct-referral.edit',
+            compact('referralSetting', 'packages')
+        );
     }
 
     /**

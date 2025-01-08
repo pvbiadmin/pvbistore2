@@ -35,7 +35,7 @@ class ProductController extends Controller
      */
     public function index(ProductDataTable $dataTable): mixed
     {
-        return $dataTable->render(view: 'admin.product.index');
+        return $dataTable->render('admin.product.index');
     }
 
     /**

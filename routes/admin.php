@@ -103,7 +103,7 @@ Route::resource('child-category', ChildCategoryController::class);
  * Brand Routes
  */
 Route::controller(BrandController::class)->group(function () {
-    Route::as('brand.')->group(function () {
+    Route:: as('brand.')->group(function () {
         Route::put('brand/change-status', 'changeStatus')->name('change-status');
         Route::put('brand/change-is-featured', 'changeIsFeatured')->name('change-is-featured');
     });
@@ -114,7 +114,7 @@ Route::resource('brand', BrandController::class);
  * Product Type Routes
  */
 Route::controller(ProductTypeController::class)->group(function () {
-    Route::as('type.')->group(function () {
+    Route:: as('type.')->group(function () {
         Route::put('type/change-status', 'changeStatus')->name('change-status');
         Route::put('type/change-is-package', 'changeIsPackage')->name('change-is-package');
     });
@@ -130,7 +130,7 @@ Route::resource('vendor-profile', AdminVendorProfileController::class);
  * Products Routes
  */
 Route::controller(ProductController::class)->group(function () {
-    Route::as('product.')->group(function () {
+    Route:: as('product.')->group(function () {
         Route::put('product/change-status', 'changeStatus')->name('change-status');
         Route::get('product/get-subcategories', 'getSubcategories')->name('get-subcategories');
         Route::get('product/get-child-categories', 'getChildCategories')->name('get-child-categories');
@@ -159,7 +159,7 @@ Route::controller(ProductVariantOptionController::class)->group(function () {
 
 /** reviews routes */
 Route::controller(AdminReviewController::class)->group(function () {
-    Route::as('reviews.')->group(function () {
+    Route:: as('reviews.')->group(function () {
         Route::get('reviews', 'index')->name('index');
         Route::put('reviews/change-status', 'changeStatus')->name('change-status');
     });
@@ -169,7 +169,7 @@ Route::controller(AdminReviewController::class)->group(function () {
  * Seller Product Routes
  */
 Route::controller(SellerProductController::class)->group(function () {
-    Route::as('seller-products.')->group(function () {
+    Route:: as('seller-products.')->group(function () {
         Route::put('seller-products/change-status', 'changeStatus')->name('change-status');
         Route::put('seller-products/change-is-approved', 'changeIsApproved')
             ->name('change-is-approved');
@@ -182,7 +182,7 @@ Route::controller(SellerProductController::class)->group(function () {
  * Flash Sale Routes
  */
 Route::controller(FlashSaleController::class)->group(function () {
-    Route::as('flash-sale.')->group(function () {
+    Route:: as('flash-sale.')->group(function () {
         Route::put('flash-sale/change-status', 'changeStatus')->name('change-status');
         Route::put('flash-sale/change-show-at-home', 'changeShowAtHome')->name('change-show-at-home');
         Route::get('flash-sale', 'index')->name('index');
@@ -231,7 +231,7 @@ Route::get('transaction', [TransactionController::class, 'index'])->name('transa
 
 /** Withdraw method route */
 Route::controller(WithdrawMethodController::class)->group(function () {
-    Route::as('withdraw.')->group(function () {
+    Route:: as('withdraw.')->group(function () {
         Route::get('withdraw', 'index')->name('index');
         Route::get('withdraw/{id}', 'show')->name('show');
         Route::put('withdraw/{id}', 'update')->name('update');
@@ -246,31 +246,14 @@ Route::controller(MessageController::class)->group(function () {
     Route::post('send-message', 'sendMessage')->name('send-message');
 });
 
-/** Referral settings route */
-//Route::controller(AdminReferralController::class)->group(function () {
-//    Route::as('referral.')->group(function () {
-//        Route::get('referral', 'index')->name('index');
-//        Route::put('referral/settings/show/{id}', 'showReferralSettings')
-//            ->name('settings.show');
-//        Route::put('referral/settings/update/{id}', 'updateReferralSettings')
-//            ->name('settings.update');
-//        Route::put('referral/settings/destroy/{id}', 'deleteReferralSettings')
-//            ->name('settings.destroy');
-//    });
-//    Route::as('referral-code.')->group(function () {
-//        Route::get('generate', 'generateCode')->name('generate');
-//        Route::post('send', 'sendCode')->name('send');
-//    });
-//});
-
 /**
  * Referral Settings Routes
  */
 Route::controller(ReferralController::class)->group(function () {
-    Route::as('referral.')->group(function () {
+    Route:: as('referral.')->group(function () {
         Route::put('referral/change-status', 'changeStatus')->name('change-status');
     });
-    Route::as('referral-code.')->group(function () {
+    Route:: as('referral-code.')->group(function () {
         Route::get('referral-code/view', 'viewCode')->name('view');
         Route::get('referral-code/generate', 'generateCode')->name('generate');
         Route::post('referral-code/send', 'sendCode')->name('send');
@@ -280,7 +263,7 @@ Route::resource('referral', ReferralController::class);
 
 /** Unilevel settings route */
 Route::controller(UnilevelController::class)->group(function () {
-    Route::as('unilevel.')->group(function () {
+    Route:: as('unilevel.')->group(function () {
         Route::put('unilevel/change-status', 'changeStatus')->name('change-status');
     });
 });
@@ -317,7 +300,7 @@ Route::put('blog/change-status', [BlogController::class, 'changeStatus'])->name(
 Route::resource('blog', BlogController::class);
 
 Route::controller(BlogCommentController::class)->group(function () {
-    Route::as('blog-comments.')->group(function () {
+    Route:: as('blog-comments.')->group(function () {
         Route::get('blog-comments', 'index')->name('index');
         Route::delete('blog-comments/{id}/destroy', 'destroy')->name('destroy');
     });
@@ -348,7 +331,7 @@ Route::controller(AdvertisementController::class)->group(function () {
 
 /** Vendor request routes */
 Route::controller(VendorApplicationController::class)->group(function () {
-    Route::as('vendor-applications.')->group(function () {
+    Route:: as('vendor-applications.')->group(function () {
         Route::get('vendor-applications', 'index')->name('index');
         Route::get('vendor-applications/{id}/show', 'show')->name('show');
         Route::put('vendor-applications/{id}/change-status', 'changeStatus')->name('change-status');
@@ -357,7 +340,7 @@ Route::controller(VendorApplicationController::class)->group(function () {
 
 /** customer list routes */
 Route::controller(CustomerListController::class)->group(function () {
-    Route::as('customer.')->group(function () {
+    Route:: as('customer.')->group(function () {
         Route::get('customer', 'index')->name('index');
         Route::put('customer/change-status', 'changeStatus')->name('change-status');
     });
@@ -365,7 +348,7 @@ Route::controller(CustomerListController::class)->group(function () {
 
 /** admin list routes */
 Route::controller(AdminListController::class)->group(function () {
-    Route::as('admin-list.')->group(function () {
+    Route:: as('admin-list.')->group(function () {
         Route::get('admin-list', 'index')->name('index');
         Route::put('admin-list/change-status', 'changeStatus')->name('change-status');
         Route::delete('admin-list/{id}', 'destroy')->name('destroy');
@@ -374,7 +357,7 @@ Route::controller(AdminListController::class)->group(function () {
 
 /** manage user routes */
 Route::controller(ManageUserController::class)->group(function () {
-    Route::as('manage-user.')->group(function () {
+    Route:: as('manage-user.')->group(function () {
         Route::get('manage-user', 'index')->name('index');
         Route::post('manage-user', 'create')->name('create');
     });
@@ -382,7 +365,7 @@ Route::controller(ManageUserController::class)->group(function () {
 
 /** vendor list routes */
 Route::controller(VendorListController::class)->group(function () {
-    Route::as('vendor-list.')->group(function () {
+    Route:: as('vendor-list.')->group(function () {
         Route::get('vendor-list', 'index')->name('index');
         Route::put('vendor-list/change-status', 'changeStatus')->name('change-status');
     });
@@ -390,7 +373,7 @@ Route::controller(VendorListController::class)->group(function () {
 
 /** vendor condition routes */
 Route::controller(VendorConditionController::class)->group(function () {
-    Route::as('vendor-condition.')->group(function () {
+    Route:: as('vendor-condition.')->group(function () {
         Route::get('vendor-condition', 'index')->name('index');
         Route::put('vendor-condition/update', 'update')->name('update');
     });
@@ -398,7 +381,7 @@ Route::controller(VendorConditionController::class)->group(function () {
 
 /** about routes */
 Route::controller(AboutController::class)->group(function () {
-    Route::as('about.')->group(function () {
+    Route:: as('about.')->group(function () {
         Route::get('about', 'index')->name('index');
         Route::put('about/update', 'update')->name('update');
     });
@@ -406,7 +389,7 @@ Route::controller(AboutController::class)->group(function () {
 
 /** terms and conditions routes */
 Route::controller(TermsAndConditionController::class)->group(function () {
-    Route::as('terms-and-conditions.')->group(function () {
+    Route:: as('terms-and-conditions.')->group(function () {
         Route::get('terms-and-conditions', 'index')->name('index');
         Route::put('terms-and-conditions/update', 'update')->name('update');
     });
@@ -420,7 +403,7 @@ Route::put('footer-socials/change-status', [FooterSocialController::class, 'chan
 Route::resource('footer-socials', FooterSocialController::class);
 
 Route::controller(FooterGridTwoController::class)->group(function () {
-    Route::as('footer-grid-two.')->group(function () {
+    Route:: as('footer-grid-two.')->group(function () {
         Route::put('footer-grid-two/change-status', 'changeStatus')->name('change-status');
         Route::put('footer-grid-two/change-title', 'changeTitle')->name('change-title');
     });
@@ -428,7 +411,7 @@ Route::controller(FooterGridTwoController::class)->group(function () {
 Route::resource('footer-grid-two', FooterGridTwoController::class);
 
 Route::controller(FooterGridThreeController::class)->group(function () {
-    Route::as('footer-grid-three.')->group(function () {
+    Route:: as('footer-grid-three.')->group(function () {
         Route::put('footer-grid-three/change-status', 'changeStatus')->name('change-status');
         Route::put('footer-grid-three/change-title', 'changeTitle')->name('change-title');
     });
