@@ -1,6 +1,6 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p style="text-align: center;"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
+<p style="text-align: center;">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
@@ -28,6 +28,139 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+
+## Laravel Project Installation Guide
+
+This guide will help you set up the Laravel project using Laragon on Windows.
+
+### Prerequisites
+- [Laragon](https://laragon.org/download/) installed
+- [Git](https://git-scm.com/downloads) installed
+- [Composer](https://getcomposer.org/download/) installed
+- [Node.js](https://nodejs.org/) installed (for frontend assets)
+
+### Installation Steps
+
+#### 1. Clone the Repository
+```bash
+# Navigate to Laragon's www directory
+cd C:\laragon\www
+
+# Clone your Git repository
+git clone <your-repository-url> project-name
+
+# Navigate to project directory
+cd project-name
+```
+
+#### 2. Install Dependencies
+```bash
+# Install PHP dependencies
+composer install
+
+# Install Node.js dependencies (if using frontend assets)
+npm install
+```
+
+#### 3. Configure Environment
+```bash
+# Copy environment file
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+```
+
+#### 4. Database Setup
+1. Open Laragon database manager (HeidiSQL)
+2. Create your database
+3. Update `.env` file with your database credentials:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+#### 5. Run Migrations and Seeding
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+#### 6. Build Frontend Assets
+```bash
+# If using Vite
+npm run build
+```
+
+#### 7. Configure Virtual Host
+1. Right-click Laragon tray icon
+2. Navigate to Apache → Sites
+3. Add "project-name.test"
+
+#### 8. Clear Application Cache
+```bash
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+```
+
+#### 9. Set Permissions
+```bash
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+```
+
+#### 10. Final Step
+1. Right-click Laragon tray icon
+2. Select 'Restart'
+
+### Additional Notes
+- Make sure all prerequisites are properly installed before starting the installation process
+- The project should now be accessible at `http://project-name.test`
+- If you encounter any issues, check Laragon's error logs
+
+### Troubleshooting
+If you encounter any issues during installation, try these steps:
+1. Ensure all required services (Apache, MySQL) are running in Laragon
+2. Verify that all prerequisites are properly installed
+3. Check the Laravel error logs in `storage/logs`
+
+### Git Repository
+1. Initialize a Git repository in the folder:
+```bash
+git init
+```
+2. Link your local repository to the remote GitHub repository:
+```bash
+git remote add origin <your-repository-url>
+```
+3. Verify the remote repository was added:
+```bash
+git remote -v
+```
+You should see:
+```
+origin  https://github.com/b2pholders/b2pholders.github.io.git (fetch)
+origin  https://github.com/b2pholders/b2pholders.github.io.git (push)
+```
+4. Stage all the files in your folder:
+```bash
+git add .
+```
+5. Commit the files with a message:
+```bash
+git commit -m "Initial commit"
+```
+6. Push your local files to the remote repository:
+```bash
+git push -u origin main
+```
+- If you’re using an older repository, the default branch might be `master` instead of `main`. Use `git branch` to check your current branch and adjust the command accordingly.
 
 ## Laravel Sponsors
 
