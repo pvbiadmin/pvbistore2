@@ -1,8 +1,8 @@
-<p>Here is a walk-through of the entire process from the initial problem statement to the formulation of the solution for the affiliate marketing system in Laravel 10.</p>
+<p>Here is a walk-through of the entire process from the initial problem statement to the formulation of the solution for the affiliate marketing system in Laravel 11.</p>
 
 ### 1. Problem Statement:
 
-The task was to create an affiliate marketing system in Laravel 10 with the following requirements:
+The task was to create an affiliate marketing system in Laravel 11 with the following requirements:
 
 - Users can share affiliate links to other users.
 - When the link is clicked, it redirects to a product details page, if user was logged in, otherwise the user will be

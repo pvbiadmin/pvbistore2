@@ -35,7 +35,7 @@ class ProductController extends Controller
      */
     public function index(ProductDataTable $dataTable): mixed
     {
-        return $dataTable->render('admin.product.index');
+        return $dataTable->render(view: 'admin.product.index');
     }
 
     /**
@@ -51,8 +51,10 @@ class ProductController extends Controller
         $brands = Brand::all();
         $types = ProductType::all();
 
-        return view('admin.product.create',
-            compact('categories', 'subcategories', 'child_categories', 'brands', 'types'));
+        return view(
+            'admin.product.create',
+            compact('categories', 'subcategories', 'child_categories', 'brands', 'types')
+        );
     }
 
     /**
