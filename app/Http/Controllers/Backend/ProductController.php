@@ -31,9 +31,9 @@ class ProductController extends Controller
      * Display a listing of the resource.
      *
      * @param ProductDataTable $dataTable
-     * @return mixed
+     * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function index(ProductDataTable $dataTable): mixed
+    public function index(ProductDataTable $dataTable)
     {
         return $dataTable->render('admin.product.index');
     }
